@@ -9,17 +9,15 @@ import { User } from '../models/user';
 export class SwaggerApiService {
 
   url : string = "https://localhost:7245/api/"
+  urlRegister : string = 'https://localhost:7245/api/Auth/Register'
 
   constructor(private _httpClient : HttpClient) {
 
   }
 
-  getAll() : Observable<User[]> {
-    return this._httpClient.get<User[]>(this.url)
-  }
 
-  create(user : User) : Observable<User> {
-    return this._httpClient.post<User>(this.url, user);
+  register(dataForm : any) : Observable<any> {
+    return this._httpClient.post(this.urlRegister, dataForm)
   }
 
   update(id : number, user : User) : Observable<User> {

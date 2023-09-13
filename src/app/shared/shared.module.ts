@@ -1,9 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -12,8 +10,13 @@ import { NotfoundComponent } from './components/notfound/notfound.component';
     NotfoundComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  
+  exports: [
+    FormsModule,
+    ReactiveFormsModule
+  ]
 })
 export class SharedModule { }
