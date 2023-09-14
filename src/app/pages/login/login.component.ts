@@ -16,7 +16,7 @@ export class LoginComponent {
 
   isMember : boolean = true
   buttonPressed : boolean = false
-  newUser : User = {id: this.createId(), pseudo : "", email : "", password : "", firstname : "", lastname : ""}
+  newUser : User = {pseudo : "", email : "", password : "", firstname : "", lastname : ""}
 
   token : string | null = this._authService.getToken()
   registerForm : FormGroup
@@ -72,7 +72,4 @@ export class LoginComponent {
     }})
   }
 
-  createId() : number {
-    return Date.now()
-  }
 }

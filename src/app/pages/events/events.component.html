@@ -9,10 +9,7 @@
         <p>
             {{event.startDate | date : "dd-MM-YYYY"}}
         </p>
-        <button routerLink="/pages/events/show-event/{{event.id}}" (click)="sendEvent(event)">plus de détails</button>
+        <button (click)="sendEvent(event)" routerLink="/pages/events/show-event/{{event.id}}">plus de détails</button>
     </div>
-    <app-show-event
-        *ngIf="eventToShow"
-        [event]="eventToShow"
-    ></app-show-event>
 </div>
+<app-show-event [displayedEvent]="eventToShow"></app-show-event>

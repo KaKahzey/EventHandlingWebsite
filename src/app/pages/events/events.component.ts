@@ -9,16 +9,14 @@ import { Myevent } from 'src/app/shared/models/myevent';
 export class EventsComponent {
 
   listEvents : Myevent[] = []
-  eventToShow : Myevent = {
-    id: 0, name: "", description: "", startDate: new Date(), endDate: new Date(), maxGuest: 1
-  };
+  eventToShow : Myevent | undefined
 
   constructor(private _swaggerApiService : SwaggerApiService){}
 
   ngOnInit() : void {
      this._swaggerApiService.displayEvents().subscribe({
       next : (response) => {
-        console.log("It worked :", response)
+        console.log("List of events :", response)
         this.listEvents.push(...response)
       },
       error : (error) => {
@@ -30,10 +28,9 @@ export class EventsComponent {
   }
 
   sendEvent(event : Myevent) : void {
-    const foundEvent = this.listEvents.find((e) => e.id === event.id);
-  if (foundEvent) {
-    this.eventToShow = foundEvent;
-  }
+    this.eventToShow = this.listEvents.find((e) => e.id === event.id);
+    console.log(this.eventToShow);
+    
   }
 
 }

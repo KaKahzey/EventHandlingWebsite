@@ -1,14 +1,13 @@
 <div>
     <h2>Découvrez les prochains évènements</h2>
-    <a routerLink="/pages/events/create-event">Ajouter un évènement</a>
-    <div>
-        <h3>{{event.name}}</h3>
+    <ng-container *ngIf="displayedEvent">
+        <h3>{{displayedEvent.name}}</h3>
         <p>
-            {{event.description}}
+            {{displayedEvent.description}}
         </p>
         <p>
-            {{event.startDate | date : "dd-MM-YYYY"}}<br />
-            {{event.endDate | date : "dd-MM-YYYY"}}
+            {{displayedEvent.startDate | date : "dd-MM-YYYY"}}<br />
+            {{displayedEvent.endDate | date : "dd-MM-YYYY"}}
         </p>
-    </div>
+    </ng-container>
 </div>

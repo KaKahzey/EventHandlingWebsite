@@ -35,4 +35,8 @@ export class SwaggerApiService {
   createEvent(event : Myevent) : Observable<any> {
     return this._httpClient.post(this._urlCreateEvent, event)
   }
+
+  deleteEvent(id : number) : Observable<any> {
+    return this._httpClient.delete(this._urlCreateEvent + "/" + id)
+  }
 }

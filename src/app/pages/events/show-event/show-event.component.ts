@@ -9,8 +9,15 @@ import { Myevent } from 'src/app/shared/models/myevent';
 })
 export class ShowEventComponent {
 
-  @Input() event : Myevent = {
-    id : 0, name : "", description : "", startDate : new Date(), endDate : new Date(), maxGuest : 1
-  }
+  @Input() displayedEvent : Myevent | undefined
   
+  constructor(){
+    
+  }
+  ngOnInit() : void {
+    console.log(this.displayedEvent);
+    
+  }
+
 }
+
