@@ -1,1 +1,18 @@
-<p>events works!</p>
+<div>
+    <h2>Découvrez les prochains évènements</h2>
+    <a routerLink="/pages/events/create-event">Ajouter un évènement</a>
+    <div *ngFor="let event of listEvents">
+        <h3>{{event.name}}</h3>
+        <p>
+            {{event.description}}
+        </p>
+        <p>
+            {{event.startDate | date : "dd-MM-YYYY"}}
+        </p>
+        <button routerLink="/pages/events/show-event/{{event.id}}" (click)="sendEvent(event)">plus de détails</button>
+    </div>
+    <app-show-event
+        *ngIf="eventToShow"
+        [event]="eventToShow"
+    ></app-show-event>
+</div>

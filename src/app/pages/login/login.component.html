@@ -1,11 +1,10 @@
 <button *ngIf="!buttonPressed" (click)="isMember = true; buttonPressed = !buttonPressed">Se connecter</button>
 <button *ngIf="!buttonPressed" (click)="isMember = false; buttonPressed = !buttonPressed">S'inscrire</button>
+
 <form [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="isMember && buttonPressed">
-    <input type="text" formControlName="pseudo" placeholder="pseudo" />
-    <!-- Make a way to permit either pseudo or email to log in -->
-    <!-- <input type="email" formControlName="email" placeholder="email" /> -->
+    <input type="text" formControlName="pseudo" placeholder="Pseudo/Email" />
     <input type="text" formControlName="password" placeholder="password" />
-    <input class="btn" type="submit" value="Créer mon compte">
+    <input class="btn" type="submit" value="Se connecter">
 </form>
 <form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!isMember && buttonPressed">
     <input type="text" formControlName="pseudo" placeholder="pseudo" />

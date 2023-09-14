@@ -1,0 +1,8 @@
+<form [formGroup]="eventForm" (ngSubmit)="create()">
+    <input type="text" formControlName="name" placeholder="name" />
+    <input type="text" formControlName="description" placeholder="description" />
+    <input type="date" formControlName="startDate" placeholder="startDate" />
+    <input type="date" formControlName="endDate" placeholder="endDate" />
+    <input type="number" formControlName="maxGuest" placeholder="maxGuest" />
+    <input class="btn" type="submit" value="Créer évènement">
+</form>

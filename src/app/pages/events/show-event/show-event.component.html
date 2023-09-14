@@ -1,0 +1,14 @@
+<div>
+    <h2>Découvrez les prochains évènements</h2>
+    <a routerLink="/pages/events/create-event">Ajouter un évènement</a>
+    <div>
+        <h3>{{event.name}}</h3>
+        <p>
+            {{event.description}}
+        </p>
+        <p>
+            {{event.startDate | date : "dd-MM-YYYY"}}<br />
+            {{event.endDate | date : "dd-MM-YYYY"}}
+        </p>
+    </div>
+</div>
