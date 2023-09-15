@@ -11,9 +11,11 @@ export class EventsComponent {
   listEvents : Myevent[] = []
   eventToShow : Myevent | undefined
 
-  constructor(private _swaggerApiService : SwaggerApiService){}
+  constructor(private _swaggerApiService : SwaggerApiService){
+    this.displayEvents()
+  }
 
-  ngOnInit() : void {
+  displayEvents() : void {
      this._swaggerApiService.displayEvents().subscribe({
       next : (response) => {
         console.log("List of events :", response)
