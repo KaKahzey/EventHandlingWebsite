@@ -2,6 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { User } from 'src/app/shared/models/user';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
@@ -22,7 +23,7 @@ export class LoginComponent {
   registerForm : FormGroup
   loginForm : FormGroup
 
-  constructor(private _fb : FormBuilder, private _httpClient : HttpClient, private _swaggerService : SwaggerApiService, private datePipe: DatePipe, private _authService : AuthService){
+  constructor(private _fb : FormBuilder, private _httpClient : HttpClient, private _swaggerService : SwaggerApiService, private datePipe: DatePipe, private _authService : AuthService, private _router : Router){
     this.registerForm = this._fb.group({
       pseudo : [[null], [Validators.required]],
       email : [[null], [Validators.required]],
@@ -51,6 +52,7 @@ export class LoginComponent {
     this._swaggerService.register(this.newUser).subscribe({
       next :(response) => {
         console.log('User registered :', response)
+        this._router.navigateByUrl("/")
     },
       error : (error) => {
         console.error('Error registering user:', error)
@@ -68,6 +70,8 @@ export class LoginComponent {
         this._authService.setToken(response.token)
         this._authService.setUser(response.member.pseudo)
         localStorage.setItem("id", response.member.id)
+        this._authService.changeState()
+        this._router.navigateByUrl("/")
     },
       error : (error) => {
         console.log("error : ", error)

@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
-  selector: 'app-navbar',
-  templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  selector: 'app-navbar-connected',
+  templateUrl: './navbar-connected.component.html',
+  styleUrls: ['./navbar-connected.component.scss']
 })
-export class NavbarComponent {
+export class NavbarConnectedComponent {
   constructor(private _authService : AuthService, private _router : Router){
   }
   

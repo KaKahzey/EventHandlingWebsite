@@ -8,6 +8,7 @@ export class AuthService {
 
   private _token : string | null = null
   private _user : string | undefined
+  private _isConnected : boolean = false
   setToken(tokenReceived : string | null) : void {
     this._token = tokenReceived
   }
@@ -25,5 +26,12 @@ export class AuthService {
   }
   removeToken() : void {
     this._token = null
+  }
+
+  getState() : boolean {
+    return this._isConnected
+  }
+  changeState() : void {
+    this._isConnected = !this._isConnected
   }
 }

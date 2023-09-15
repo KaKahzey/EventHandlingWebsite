@@ -7,6 +7,7 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { NavbarConnectedComponent } from './shared/components/navbar-connected/navbar-connected.component';
 
 
 @NgModule({
@@ -14,6 +15,7 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
     AppComponent,
     NavbarComponent,
     HomeComponent,
+    NavbarConnectedComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,6 @@
-<app-navbar></app-navbar>
+
+<app-navbar *ngIf="!isConnected"></app-navbar>
+<app-navbar-connected *ngIf="isConnected"></app-navbar-connected>
 <main>
     <router-outlet></router-outlet>
 </main>
