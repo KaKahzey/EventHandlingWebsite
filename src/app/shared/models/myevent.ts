@@ -1,8 +1,9 @@
 export interface Myevent {
     id? : number
     name : string
-    description : string
+    description? : string
     startDate : Date
     endDate : Date 
     maxGuest? : number
+    creatorId? : number
 }

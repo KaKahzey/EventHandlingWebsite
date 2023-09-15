@@ -31,7 +31,10 @@ export class EventsComponent {
   }
 
   sendEvent(event : Myevent) : void {
-    this._eventService.displayedEvent = this.listEvents.find((e) => e.id === event.id)
+    const foundEvent = this.listEvents.find((e) => e.id === event.id)
+    if(foundEvent) {
+      this._eventService.setDisplayedEvent(foundEvent)
+    }
   }
 
 }

@@ -67,6 +67,7 @@ export class LoginComponent {
         console.log("User logged in :", response)
         this._authService.setToken(response.token)
         this._authService.setUser(response.member.pseudo)
+        localStorage.setItem("id", response.member.id)
     },
       error : (error) => {
         console.log("error : ", error)

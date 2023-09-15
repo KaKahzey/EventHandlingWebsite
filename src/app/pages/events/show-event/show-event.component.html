@@ -1,6 +1,10 @@
 <div>
     <h2>Découvrez les prochains évènements</h2>
     <div *ngIf="event">
+        <div *ngIf="event.creatorId == idUser">
+            <button (click)="deleteEvent()" class="btn">Annuler l'évènement</button>
+            <button routerLink="/pages/events/update-event/{{event.id}}" class="btn">Modifier l'évènement</button>
+        </div>
         <h3>{{event.name}}</h3>
         <p>
             {{event.description}}

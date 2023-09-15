@@ -1,6 +1,8 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 import { Myevent } from 'src/app/shared/models/myevent';
 import { EventService } from 'src/app/shared/services/event.service';
+import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
 
 
 @Component({
@@ -10,10 +12,22 @@ import { EventService } from 'src/app/shared/services/event.service';
 })
 export class ShowEventComponent {
 
-  event : Myevent | undefined = this._eventService.displayedEvent
-  
-  constructor(private _eventService : EventService){
-    
+  event : Myevent | null = this._eventService.getDisplayedEvent()
+  idUser : number = Number(localStorage.getItem("id"))
+  constructor(private _eventService : EventService, private _swaggerApi : SwaggerApiService, private _router : Router){ }
+
+  deleteEvent() : void {
+    if(this.event){
+      this._swaggerApi.deleteEvent(this.event.id).subscribe({
+        next : (response) => {
+          console.log("Event deleted : ", response)
+        },
+        error : (error) => {
+          console.error("Issue deleting : ", error)
+        }
+      })
+      this._router.navigateByUrl("pages/events")
+    }
   }
 
 }

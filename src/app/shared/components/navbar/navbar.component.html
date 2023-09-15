@@ -1,11 +1,12 @@
 <div class="nav">
     <div>
-        <h1>DevEnt</h1>
+        <h1>DevEnt </h1>
     </div>
     <div>
         <span *ngIf="displayUser()"> Hello {{displayUser()}}</span>
-        <a routerLink="/">Accueil</a>
-        <a routerLink="/pages/events">Les évènements</a>
-        <a routerLink="/pages/login">login</a>
+        <button routerLink="/" class="btn"> Accueil </button>
+        <button routerLink="/pages/events" class="btn"> Les évènements </button>
+        <button *ngIf="!displayUser()" routerLink="/pages/login" class="btn"> login </button>
+        <button *ngIf="displayUser()" class="btn" (click)="logout()">Se déconnecter</button>
     </div>
 </div>

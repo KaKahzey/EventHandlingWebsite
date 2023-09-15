@@ -6,7 +6,12 @@ import { Myevent } from '../models/myevent';
 })
 export class EventService {
 
-  displayedEvent : Myevent | undefined
+  displayedEvent : Myevent | null = null
   
-  constructor() { }
+  setDisplayedEvent(eventToDisplay : Myevent) : void {
+    this.displayedEvent = eventToDisplay
+  }
+  getDisplayedEvent() : Myevent | null{
+    return this.displayedEvent
+  }
 }

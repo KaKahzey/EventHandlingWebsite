@@ -8,6 +8,7 @@ import { SharedModule } from '../shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { ShowEventComponent } from './events/show-event/show-event.component';
+import { UpdateEventComponent } from './events/update-event/update-event.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ShowEventComponent } from './events/show-event/show-event.component';
     LoginComponent,
     CreateEventComponent,
     ShowEventComponent,
+    UpdateEventComponent,
   ],
   imports: [
     CommonModule,

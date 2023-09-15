@@ -16,11 +16,14 @@ export class AuthService {
     return this._token
   }
 
-  setUser(loggedUser : string) : void {
-    this._user = loggedUser
+  setUser(loggedUserName : string) : void {
+    this._user = loggedUserName
   }
 
   getUser() : string | undefined {
     return this._user
+  }
+  removeToken() : void {
+    this._token = null
   }
 }
