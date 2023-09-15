@@ -13,9 +13,11 @@ export class EventsComponent {
     id: 0, name: "", description: "", startDate: new Date(), endDate: new Date(), maxGuest: 1
   };
 
-  constructor(private _swaggerApiService : SwaggerApiService){}
+  constructor(private _swaggerApiService : SwaggerApiService){
+    this.displayEvents()
+  }
 
-  ngOnInit() : void {
+  displayEvents() : void {
      this._swaggerApiService.displayEvents().subscribe({
       next : (response) => {
         console.log("It worked :", response)
