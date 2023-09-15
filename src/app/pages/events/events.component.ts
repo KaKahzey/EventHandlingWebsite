@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
 import { Myevent } from 'src/app/shared/models/myevent';
+import { EventService } from 'src/app/shared/services/event.service';
+
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
@@ -9,9 +11,8 @@ import { Myevent } from 'src/app/shared/models/myevent';
 export class EventsComponent {
 
   listEvents : Myevent[] = []
-  eventToShow : Myevent | undefined
 
-  constructor(private _swaggerApiService : SwaggerApiService){
+  constructor(private _swaggerApiService : SwaggerApiService, private _eventService : EventService){
     this.displayEvents()
   }
 
@@ -30,9 +31,7 @@ export class EventsComponent {
   }
 
   sendEvent(event : Myevent) : void {
-    this.eventToShow = this.listEvents.find((e) => e.id === event.id);
-    console.log(this.eventToShow);
-    
+    this._eventService.displayedEvent = this.listEvents.find((e) => e.id === event.id)
   }
 
 }

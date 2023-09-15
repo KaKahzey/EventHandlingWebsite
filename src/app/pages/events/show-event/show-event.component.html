@@ -1,13 +1,13 @@
 <div>
     <h2>Découvrez les prochains évènements</h2>
-    <ng-container *ngIf="displayedEvent">
-        <h3>{{displayedEvent.name}}</h3>
+    <div *ngIf="event">
+        <h3>{{event.name}}</h3>
         <p>
-            {{displayedEvent.description}}
+            {{event.description}}
         </p>
         <p>
-            {{displayedEvent.startDate | date : "dd-MM-YYYY"}}<br />
-            {{displayedEvent.endDate | date : "dd-MM-YYYY"}}
+            {{event.startDate | date : "dd-MM-YYYY"}}<br />
+            {{event.endDate | date : "dd-MM-YYYY"}}
         </p>
-    </ng-container>
+    </div>
 </div>

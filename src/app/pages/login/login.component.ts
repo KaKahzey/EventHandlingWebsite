@@ -66,6 +66,7 @@ export class LoginComponent {
       next : (response) => {
         console.log("User logged in :", response)
         this._authService.setToken(response.token)
+        this._authService.setUser(response.member.pseudo)
     },
       error : (error) => {
         console.log("error : ", error)

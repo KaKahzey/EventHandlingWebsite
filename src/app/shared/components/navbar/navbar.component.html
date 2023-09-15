@@ -3,6 +3,7 @@
         <h1>DevEnt</h1>
     </div>
     <div>
+        <span *ngIf="displayUser()"> Hello {{displayUser()}}</span>
         <a routerLink="/">Accueil</a>
         <a routerLink="/pages/events">Les évènements</a>
         <a routerLink="/pages/login">login</a>

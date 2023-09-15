@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Myevent } from 'src/app/shared/models/myevent';
+import { EventService } from 'src/app/shared/services/event.service';
 
 
 @Component({
@@ -9,13 +10,9 @@ import { Myevent } from 'src/app/shared/models/myevent';
 })
 export class ShowEventComponent {
 
-  @Input() displayedEvent : Myevent | undefined
+  event : Myevent | undefined = this._eventService.displayedEvent
   
-  constructor(){
-    
-  }
-  ngOnInit() : void {
-    console.log(this.displayedEvent);
+  constructor(private _eventService : EventService){
     
   }
 
