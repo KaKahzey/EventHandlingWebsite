@@ -15,10 +15,12 @@ export class NavbarComponent {
     return this._authService.getUser()
   }
 
+  verifyIfConnected() : string | undefined {
+    return this._authService.getUser()
+  }
+
   logout() : void {
-    this._authService.removeToken()
-    localStorage.clear()
-    this._router.navigateByUrl("/")
+    this._authService.logout()
     
   }
 }

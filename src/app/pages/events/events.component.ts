@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
 import { Myevent } from 'src/app/shared/models/myevent';
 import { EventService } from 'src/app/shared/services/event.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-events',
@@ -12,7 +13,7 @@ export class EventsComponent {
 
   listEvents : Myevent[] = []
 
-  constructor(private _swaggerApiService : SwaggerApiService, private _eventService : EventService){
+  constructor(private _swaggerApiService : SwaggerApiService, private _eventService : EventService, private _authService : AuthService){
     this.displayEvents()
   }
 
@@ -37,4 +38,7 @@ export class EventsComponent {
     }
   }
 
+  checkIfConnected() : string | null {
+    return this._authService.getToken()
+  }
 }

@@ -5,6 +5,8 @@
     <div>
         <button routerLink="/" class="btn"> Accueil </button>
         <button routerLink="/pages/events" class="btn"> Les évènements </button>
-        <button routerLink="/pages/login" class="btn"> login </button>
+        <span *ngIf="verifyIfConnected()">{{displayUser()}}</span>
+        <button *ngIf="!verifyIfConnected()" routerLink="/pages/login" class="btn"> Se connecter </button>
+        <button *ngIf="verifyIfConnected()" (click)="logout()" class="btn"> Se déconnecter </button>
     </div>
 </div>

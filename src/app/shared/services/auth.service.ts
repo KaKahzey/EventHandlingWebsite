@@ -8,30 +8,21 @@ export class AuthService {
 
   private _token : string | null = null
   private _user : string | undefined
-  private _isConnected : boolean = false
-  setToken(tokenReceived : string | null) : void {
-    this._token = tokenReceived
-  }
 
   getToken(): string | null {
     return this._token
   }
 
-  setUser(loggedUserName : string) : void {
-    this._user = loggedUserName
+  setUser(user : string, token : string) : void {
+    this._user = user
+    this._token = token
   }
 
   getUser() : string | undefined {
     return this._user
   }
-  removeToken() : void {
+  logout() : void {
     this._token = null
-  }
-
-  getState() : boolean {
-    return this._isConnected
-  }
-  changeState() : void {
-    this._isConnected = !this._isConnected
+    this._user = undefined
   }
 }

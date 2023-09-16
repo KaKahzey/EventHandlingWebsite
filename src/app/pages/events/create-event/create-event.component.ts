@@ -1,10 +1,8 @@
-import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Myevent } from 'src/app/shared/models/myevent';
-import { AuthService } from 'src/app/shared/services/auth.service';
 import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
 
 @Component({
@@ -24,10 +22,10 @@ export class CreateEventComponent {
 
   eventForm : FormGroup
   
-  constructor(private _fb : FormBuilder, private _httpClient : HttpClient, private _swaggerService : SwaggerApiService, private datePipe: DatePipe, private _authService : AuthService, private _router : Router){
+  constructor(private _fb : FormBuilder, private _httpClient : HttpClient, private _swaggerService : SwaggerApiService, private _router : Router){
     this.eventForm = this._fb.group({
       name : [null, [Validators.required]],
-      description : [null, [Validators.required]],
+      description : [null],
       startDate : [null, [Validators.required]],
       endDate : [null, [Validators.required]],
       maxGuest : [null, [Validators.required]]

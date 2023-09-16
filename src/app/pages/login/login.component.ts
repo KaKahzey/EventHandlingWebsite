@@ -67,11 +67,10 @@ export class LoginComponent {
     this._swaggerService.login(loginInfo).subscribe({
       next : (response) => {
         console.log("User logged in :", response)
-        this._authService.setToken(response.token)
-        this._authService.setUser(response.member.pseudo)
+        this._authService.setUser(response.member.pseudo, response.token)
         localStorage.setItem("id", response.member.id)
-        this._authService.changeState()
         this._router.navigateByUrl("/")
+        
     },
       error : (error) => {
         console.log("error : ", error)

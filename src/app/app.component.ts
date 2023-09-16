@@ -9,11 +9,4 @@ import { AuthService } from './shared/services/auth.service';
 export class AppComponent {
 
   title = 'EventHandlingWebsite';
-  isConnected : boolean = this.getState()
-
-  constructor(private _authService : AuthService) {}
-
-  getState() : boolean {
-    return this._authService.getState()
-  }
 }

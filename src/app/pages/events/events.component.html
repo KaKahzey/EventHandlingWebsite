@@ -1,6 +1,6 @@
 <div>
     <h2>Découvrez les prochains évènements</h2>
-    <a routerLink="/pages/events/create-event">Ajouter un évènement</a>
+    <a *ngIf="checkIfConnected()" routerLink="/pages/events/create-event">Ajouter un évènement</a>
     <div *ngFor="let event of listEvents">
         <h3>{{event.name}}</h3>
         <p>
