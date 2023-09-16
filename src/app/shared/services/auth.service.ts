@@ -24,5 +24,6 @@ export class AuthService {
   logout() : void {
     this._token = null
     this._user = undefined
+    localStorage.clear()
   }
 }

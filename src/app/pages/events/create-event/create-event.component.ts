@@ -26,8 +26,8 @@ export class CreateEventComponent {
     this.eventForm = this._fb.group({
       name : [null, [Validators.required]],
       description : [null],
-      startDate : [null, [Validators.required]],
-      endDate : [null, [Validators.required]],
+      startDate : ["15-09-2023", [Validators.required]],
+      endDate : ["16-09-2023", [Validators.required]],
       maxGuest : [null, [Validators.required]]
     })
   }

@@ -9,4 +9,7 @@ import { AuthService } from './shared/services/auth.service';
 export class AppComponent {
 
   title = 'EventHandlingWebsite';
+  constructor(private _authService : AuthService){
+    this._authService.logout()
+  }
 }

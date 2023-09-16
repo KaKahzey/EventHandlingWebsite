@@ -1,35 +1,42 @@
-<div class="">
-    <h3>Bienvenue !</h3>
-    <p>
-        Tu cherches à échanger avec des développeurs et développeuses
-    </p>
-    <p>
-        Tu es à la recherche d'un emploi dans le développement Web en Belgique
-    </p>
-    <p>
+<div class="flex">
+    <div class="w-2/3 bg-gray-100 p-4">
+      <h3 class="text-2xl font-semibold">Bienvenue !</h3>
+      <p>
+        Tu cherches à échanger avec des développeurs et développeuses.
+      </p>
+      <p>
+        Tu es à la recherche d'un emploi dans le développement Web en Belgique.
+      </p>
+      <p>
         Tu recherches une conférence ou une formation autour d'un sujet particulier ?
-    </p>
-    <p>
+      </p>
+      <p>
         Tu recherches un Hackathon ou un nouveau challenge ?
-    </p>
-    <h2>Alors DevEnt est fait pour toi !</h2>
-    <div>
-        <div>
-            <h4>Les évènements</h4>
-            <p>
-                Découvrez tous les évènements qui auront lieu prochainement et inscrivez-vous !
-            </p>
-            <button class="btn" routerLink="/pages/events">Voir tous les évènements</button>
+      </p>
+      <h2 class="text-2xl font-semibold mt-4">Alors DevEnt est fait pour toi !</h2>
+      <div class="flex mt-4">
+        <div class="w-1/2 bg-gray-300 p-4 flex flex-col items-center">
+          <h4 class="text-xl text-blue-500">Les évènements</h4>
+          <p>
+            Découvrez tous les évènements qui auront lieu prochainement et inscrivez-vous !
+          </p>
+          <div class="mt-auto">
+            <p-button routerLink="/pages/events" label="Voir tous les évènements" />
+          </div>
         </div>
-        <div>
-            <h4>Gestion des évènements</h4>
-            <p>
-                Vous souhaitez créer un évènement, gérer vos évènements et vos participations ?
-            </p>
-            <button class="btn">Gérer mes évènements</button>
+        <div class="w-1/2 bg-gray-300 p-4 flex flex-col items-center">
+          <h4 class="text-xl text-blue-500">Gestion des évènements</h4>
+          <p>
+            Vous souhaitez créer un évènement, gérer vos évènements et vos participations ?
+          </p>
+          <div class="mt-auto">
+            <p-button label="Gérer mes évènements" />
+          </div>
         </div>
+      </div>
     </div>
-</div>
-<div>
-    <img src="/assets/images/lady.PNG" alt="entity posting files on a board" />
-</div>
+    <div class="w-1/3">
+      <img src="/assets/images/lady.PNG" alt="entity posting files on a board" />
+    </div>
+  </div>
+  

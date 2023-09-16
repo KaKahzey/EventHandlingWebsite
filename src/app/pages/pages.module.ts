@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { CreateEventComponent } from './events/create-event/create-event.component';
 import { ShowEventComponent } from './events/show-event/show-event.component';
 import { UpdateEventComponent } from './events/update-event/update-event.component';
+import { ButtonModule } from 'primeng/button';
+import { PasswordModule } from 'primeng/password';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { UpdateEventComponent } from './events/update-event/update-event.compone
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    PasswordModule
   ]
 })
 export class PagesModule { }

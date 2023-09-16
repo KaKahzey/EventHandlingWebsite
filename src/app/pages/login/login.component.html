@@ -1,17 +1,49 @@
-<button *ngIf="!buttonPressed" (click)="isMember = true; buttonPressed = !buttonPressed">Se connecter</button>
-<button *ngIf="!buttonPressed" (click)="isMember = false; buttonPressed = !buttonPressed">S'inscrire</button>
-
-<form [formGroup]="loginForm" (ngSubmit)="login()" *ngIf="isMember && buttonPressed">
-    <input type="text" formControlName="pseudo" placeholder="Pseudo/Email" />
-    <input type="text" formControlName="password" placeholder="password" />
-    <input class="btn" type="submit" value="Se connecter">
-</form>
-<form [formGroup]="registerForm" (ngSubmit)="register()" *ngIf="!isMember && buttonPressed">
-    <input type="text" formControlName="pseudo" placeholder="pseudo" />
-    <input type="email" formControlName="email" placeholder="email" />
-    <input type="text" formControlName="password" placeholder="password" />
-    <input type="text" formControlName="firstname" placeholder="firstname" />
-    <input type="text" formControlName="lastname" placeholder="lastname" />
-    <input type="date" formControlName="birthdate" />
-    <input class="btn" type="submit" value="Créer mon compte">
-</form>
+<div class="full-screen bg-gray-100 p-4 rounded-md shadow-md text-center">
+    <div>
+      <p-button *ngIf="!showLoginForm && !showRegisterForm" (click)="showLoginForm = true">Se connecter</p-button>
+      <p-button *ngIf="!showLoginForm && !showRegisterForm" (click)="showRegisterForm = true">S'inscrire</p-button>
+    </div>
+  
+    <div *ngIf="showLoginForm">
+      <form [formGroup]="loginForm" (ngSubmit)="login()" class="">
+        <div class="mb-4">
+          <input type="text" formControlName="pseudo" placeholder="Pseudo/Email" class="form-control" />
+        </div>
+        <div class="mb-4">
+          <p-password formControlName="password" placeholder="Password" class="form-control" [toggleMask]="true"></p-password>
+        </div>
+        <button class="btn btn-primary" type="submit">Se connecter</button>
+      </form>
+      <div class="p-3">
+          <p-button (onClick)="toggleRegisterForm()" label="Pas de compte?" />
+      </div>
+    </div>
+  
+    <div *ngIf="showRegisterForm">
+      <form [formGroup]="registerForm" (ngSubmit)="register()">
+        <div class="mb-4">
+          <input type="text" formControlName="pseudo" placeholder="Pseudo" class="form-control" />
+        </div>
+        <div class="mb-4">
+          <input type="email" formControlName="email" placeholder="Email" class="form-control" />
+        </div>
+        <div class="mb-4">
+          <p-password formControlName="password" placeholder="Password" class="form-control" [toggleMask]="true"></p-password>
+        </div>
+        <div class="mb-4">
+          <input type="text" formControlName="firstname" placeholder="Prénom" class="form-control" />
+        </div>
+        <div class="mb-4">
+          <input type="text" formControlName="lastname" placeholder="Nom" class="form-control" />
+        </div>
+        <div class="mb-4">
+          <input type="date" formControlName="birthdate" class="form-control" />
+        </div>
+        <p-button type="submit" label="Créer mon compte" />
+      </form>
+      <div class="p-3">
+        <p-button (onClick)="toggleLoginForm()" label="Déjà un compte?" />
+    </div>
+    </div>
+  </div>
+  

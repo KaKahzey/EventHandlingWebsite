@@ -14,9 +14,9 @@ import { SwaggerApiService } from 'src/app/shared/services/swagger-api.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+  showLoginForm = false
+  showRegisterForm = false
   isMember : boolean = true
-  buttonPressed : boolean = false
   newUser : User = {pseudo : "", email : "", password : "", firstname : "", lastname : ""}
 
   token : string | null = this._authService.getToken()
@@ -30,7 +30,7 @@ export class LoginComponent {
       password : [[null], [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{5,}$/)]],
       firstname : [null],
       lastname : [null],
-      birthdate : [[null]]
+      birthdate : ["12-05-1998",]
     })
     this.loginForm = this._fb.group({
       pseudo : [[null], [Validators.required]],
@@ -52,7 +52,7 @@ export class LoginComponent {
     this._swaggerService.register(this.newUser).subscribe({
       next :(response) => {
         console.log('User registered :', response)
-        this._router.navigateByUrl("/")
+        this.toggleLoginForm()
     },
       error : (error) => {
         console.error('Error registering user:', error)
@@ -75,6 +75,15 @@ export class LoginComponent {
       error : (error) => {
         console.log("error : ", error)
     }})
+  }
+  toggleLoginForm() {
+    this.showLoginForm = true
+    this.showRegisterForm = false
+  }
+
+  toggleRegisterForm() {
+    this.showRegisterForm = true
+    this.showLoginForm = false
   }
 
 }

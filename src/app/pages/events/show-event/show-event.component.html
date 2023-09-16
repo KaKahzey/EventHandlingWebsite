@@ -1,17 +1,17 @@
-<div>
-    <h2>Découvrez les prochains évènements</h2>
-    <div *ngIf="event">
-        <div *ngIf="event.creatorId == idUser">
-            <button (click)="deleteEvent()" class="btn">Annuler l'évènement</button>
-            <button routerLink="/pages/events/update-event/{{event.id}}" class="btn">Modifier l'évènement</button>
-        </div>
-        <h3>{{event.name}}</h3>
-        <p>
-            {{event.description}}
-        </p>
-        <p>
-            {{event.startDate | date : "dd-MM-YYYY"}}<br />
-            {{event.endDate | date : "dd-MM-YYYY"}}
-        </p>
+<div class="full-screen">
+    <div *ngIf="event" class="bg-gray-100 p-4 rounded-md shadow-md text-center">
+      <div class="text-right" *ngIf="event.creatorId === idUser">
+        <p-button (click)="deleteEvent()" label="Annuler l'évènement" />
+        <p-button routerLink="/pages/events/update-event/{{event.id}}" label="Modifier l'évènement" />
+      </div>
+      <h3 class="text-blue-500">{{event.name}}</h3>
+      <p>{{event.description}}</p>
+      <p>
+        <span class="text-blue-500">Début de l'évènement</span><br />
+        {{event.startDate | date : "dd-MM-YYYY"}}<br />
+        <span class="text-blue-500">Fin de l'évènement</span><br />
+        {{event.endDate | date : "dd-MM-YYYY"}}
+      </p>
     </div>
 </div>
+  

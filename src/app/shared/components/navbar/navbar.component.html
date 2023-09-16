@@ -1,12 +1,12 @@
 <div class="nav">
     <div>
-        <h1>DevEnt </h1>
+        <img src="/assets/images/devent.png" width="50%"/>
     </div>
     <div>
-        <button routerLink="/" class="btn"> Accueil </button>
-        <button routerLink="/pages/events" class="btn"> Les évènements </button>
-        <span *ngIf="verifyIfConnected()">{{displayUser()}}</span>
-        <button *ngIf="!verifyIfConnected()" routerLink="/pages/login" class="btn"> Se connecter </button>
-        <button *ngIf="verifyIfConnected()" (click)="logout()" class="btn"> Se déconnecter </button>
+        <span *ngIf="verifyIfConnected()">Bienvenue {{ displayUser() }}!   </span>
+        <p-button routerLink="/" label="Accueil"></p-button>
+        <p-button routerLink="pages/events" label="Les évènements"></p-button>
+        <p-button *ngIf="!verifyIfConnected()" routerLink="/pages/login" label="Se connecter"></p-button>
+        <p-button *ngIf="verifyIfConnected()" (click)="logout()" label="Se déconnecter"></p-button>
     </div>
 </div>

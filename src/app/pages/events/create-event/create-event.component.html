@@ -1,8 +1,10 @@
-<form [formGroup]="eventForm" (ngSubmit)="create()">
-    <input type="text" formControlName="name" placeholder="name" />
-    <input type="text" formControlName="description" placeholder="description" />
-    <input type="datetime-local" formControlName="startDate" />
-    <input type="datetime-local" formControlName="endDate" />
-    <input type="number" formControlName="maxGuest" placeholder="maxGuest" />
-    <input class="btn" type="submit" value="Créer évènement">
-</form>
+<div class="full-screen bg-gray-100 p-4 rounded-md shadow-md text-center flex flex-col justify-center items-center">
+    <form [formGroup]="eventForm" (ngSubmit)="create()" class="flex flex-col items-center">
+        <input type="text" formControlName="name" placeholder="name" class="mb-4" />
+        <input type="text" formControlName="description" placeholder="description" class="mb-4" />
+        <input type="date" formControlName="startDate" class="mb-4" />
+        <input type="date" formControlName="endDate" class="mb-4" />
+        <input type="number" formControlName="maxGuest" placeholder="maxGuest" class="mb-4" />
+        <input class="btn" type="submit" value="Créer évènement" />
+    </form>
+</div>

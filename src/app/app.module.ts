@@ -7,8 +7,11 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { DatePipe } from '@angular/common';
 import { TokenInterceptor } from './shared/interceptors/token.interceptor';
-
-
+import { ButtonModule } from 'primeng/button';
+import {CalendarModule } from 'primeng/calendar'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PasswordModule } from 'primeng/password';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,12 @@ import { TokenInterceptor } from './shared/interceptors/token.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonModule,
+    CalendarModule,
+    BrowserAnimationsModule,
+    ReactiveFormsModule,
+    PasswordModule
   ],
   providers: [
     DatePipe,

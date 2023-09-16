@@ -1,14 +1,14 @@
-<div>
-    <h2>Découvrez les prochains évènements</h2>
-    <a *ngIf="checkIfConnected()" routerLink="/pages/events/create-event">Ajouter un évènement</a>
-    <div *ngFor="let event of listEvents">
-        <h3>{{event.name}}</h3>
-        <p>
-            {{event.description}}
-        </p>
-        <p>
-            {{event.startDate | date : "dd-MM-YYYY"}}
-        </p>
-        <button (click)="sendEvent(event)" routerLink="/pages/events/show-event/{{event.id}}">plus de détails</button>
+<div class="flex flex-wrap gap-4 bg-gray-100 pb-5">
+  <div class="w-full text-center mb-4">
+    <p-button routerLink="/pages/events/create-event" label="Créer un évènement" />
+  </div>
+  <div *ngFor="let event of listEvents" class="w-1/5 bg-gray-300 rounded-md shadow-md flex flex-col pl-4 pb-4 h-60">
+    <h3 class="font-bold text-blue-500">{{event.name}}</h3>
+    <p>{{event.description}}</p>
+    <p>{{event.startDate | date : "dd-MM-YYYY"}}</p>
+    <div class="flex-grow"></div>
+    <div class="flex justify-center mt-4">
+      <p-button (click)="sendEvent(event)" routerLink="/pages/events/show-event/{{event.id}}" label="plus de détails" />
     </div>
+  </div>
 </div>
