@@ -18,7 +18,7 @@ export class UpdateEventComponent {
 
   eventForm : FormGroup
   
-  constructor(private _fb : FormBuilder, private _httpClient : HttpClient, private _swaggerService : SwaggerApiService, private datePipe: DatePipe, private _authService : AuthService, private _router : Router, private _eventService : EventService){
+  constructor(private _fb : FormBuilder, private _swaggerService : SwaggerApiService, private datePipe: DatePipe, private _router : Router, private _eventService : EventService){
     this.eventForm = this._fb.group({
       name : [this.newEvent?.name, [Validators.required]],
       description : [this.newEvent?.description, [Validators.required]],

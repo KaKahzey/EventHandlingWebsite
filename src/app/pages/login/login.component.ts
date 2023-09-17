@@ -30,7 +30,7 @@ export class LoginComponent {
       password : [[null], [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*\W).{5,}$/)]],
       firstname : [null],
       lastname : [null],
-      birthdate : ["12-05-1998",]
+      birthdate : ["1998-05-12",]
     })
     this.loginForm = this._fb.group({
       pseudo : [[null], [Validators.required]],
